@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
+
 def decimal2binary(value):
     return [int(i) for i in bin(value)[2:].zfill(8)]
 
@@ -26,11 +27,12 @@ bits   = len(dac)
 levels = 2 ** bits
 max_voltage = 3.3
 
-GPIO.setmode(GPIO.BCM)
 
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(dac, GPIO.OUT)
 GPIO.setup(troyka, GPIO.OUT, initial=GPIO.HIGH)
 GPIO.setup(comp, GPIO.IN)
+
 
 try:
     while True:
